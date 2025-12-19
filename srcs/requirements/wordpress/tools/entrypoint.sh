@@ -46,7 +46,11 @@ else
 		--admin_email="$WP_ADMIN_EMAIL" \
 		--skip-email
 
-	# MODIFIED: Uses the WP_USER_ROLE env var, defaults to 'author' if not set
+	# Disable "Comment must be manually approved"
+	wp option update comment_moderation 0 --allow-root
+	# Disable "Comment author must have a previously approved comment"
+	wp option update comment_previously_approved 0 --allow-root
+
 	wp user create --allow-root \
 		"$WP_USER_LOGIN" \
 		"$WP_USER_EMAIL" \

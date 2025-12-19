@@ -27,6 +27,7 @@ fclean: clean
 	@docker compose -f $(COMPOSE_FILE) down --rmi all
 	@docker network prune --force
 	@docker volume prune --force
+	@docker builder prune --force
 	@rm -rf secrets/
 
 re: fclean all

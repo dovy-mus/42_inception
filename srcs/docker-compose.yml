@@ -3,7 +3,7 @@ services:
     build:
       context: ${NGINX_CONTEXT}
       dockerfile: Dockerfile
-    image: nginx
+    image: nginx:inception
     container_name: nginx
     ports:
       - "443:443"
@@ -19,7 +19,7 @@ services:
     build:
       context: ${WORDPRESS_CONTEXT}
       dockerfile: Dockerfile
-    image: wordpress
+    image: wordpress:inception
     container_name: wordpress
     restart: unless-stopped
     depends_on:
@@ -50,7 +50,7 @@ services:
     build:
       context: ${MARIADB_CONTEXT}
       dockerfile: Dockerfile
-    image: mariadb
+    image: mariadb:inception
     container_name: mariadb
     restart: unless-stopped
     networks:
